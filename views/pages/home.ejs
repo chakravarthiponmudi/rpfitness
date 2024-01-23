@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include ("../partials/header.ejs") %>
+    
+</head>
+<body class="home">
+    <!--add a div that occupies top 20% of the page-->
+    <div style="height:20vh"></div>
+    
+    <h1>Exercise and Diet</h1>
+    <h2>Log Book</h2>
+
+    <h3>Log in</h3>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input class="btn btn-primary"  type="submit" value="Submit">
+    </form>
+
+    
+</body>
+</html>

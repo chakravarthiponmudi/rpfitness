@@ -1,0 +1,17 @@
+.home {
+    /* This is a documentation comment explaining the purpose of the selected code */
+
+    /* Selected code */
+    /*make the background image cover the entire div*/
+    background-size: cover;
+    /*make the background image fixed*/
+    background-attachment: fixed;
+    /*make the text appear bold and centered*/  
+    font-weight: bold;
+    text-align: center;
+    
+    /* Additional code */
+    /* vertically center the text */
+}
+
+

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ("../../partials/header.ejs") %>
+</head>
+
+<body>
+
+    <p class="fs-1 lh-lg text-center">RP Fitness System</p>
+   
+    <form action="/submit" method="post">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-6 border">
+                    <div>
+                        <label class="col-2" for="date">Date</label>
+                        <label class="col-0" for="date">:</label>
+                        <input class="col-6" type="date" id="date" name="date">
+                    </div>
+                    <div>
+                        <label class="col-2" for="weight">Weight</label>
+                        <label class="col-0" for="date">:</label>
+                        <input class="col-6" type="text" id="weight" name="weight" placeholder="Enter weight in kgs">
+                    </div>
+                    <div>
+                        <label class="col-2" for="time">Time</label>
+                        <label class="col-0" for="date">:</label>
+                        <input class="col-6" type="time" id="time" name="time">
+                    </div>
+                    <br />
+                    <div>
+
+                        <label class="col-2" for="energy">Energy Level</label>
+                        <label class="col-0">:</label>
+                        <input type="radio" id="energy" name="energy" value="high">
+                        <label for="high">High</label>
+                        <input type="radio" id="energy" name="energy" value="medium">
+                        <label for="medium">Medium</label>
+                        <input type="radio" id="energy" name="energy" value="low">
+                        <label for="low">Low</label>
+                    </div>
+                </div>
+
+
+                <div class="col-6 border">
+                    <div class="row">
+                        <div class="col ">
+                            <div>
+                                <label class="col-2" for="warmup">Warm up</label>
+                                <label class="col-1" for="warmup">:</label>
+                                <input type="checkbox" id="warmup" name="checkbox">
+                            </div>
+                            <div>
+                                <label class="col-2" for="cooldown">Cool down</label>
+                                <label class="col-1" for="cooldown">:</label>
+                                <input type="checkbox" id="cooldown" name="checkbox">
+                            </div>
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="row border-top">
+
+                        <div class="col">
+                            <br />
+                            <div>
+                                <label class="col-2" for="warmup">Doms</label>
+                                <label class="col-1" for="warmup">:</label>
+                                <select id="doms" name="doms">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <label>(1=no soreness, 5=sore, 10=very sore)</label>
+
+                            </div>
+                            <div>
+                                <label class="col-2" for="RPE">RPE</label>
+                                <label class="col-1" for="RPE">:</label>
+                                <select id="rpe" name="rpe">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div class="row mx-auto p-3">
+            <div>
+                <ul id="app-tabs" class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a id="workout-nav" class="nav-link active" aria-current="page" href="#">Workout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="lifestyle-nav" class="nav-link" href="#">Lifestyle & Nutrition </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="measurements-nav" class="nav-link" href="#">Measurements </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="workout-form">
+                <button id="addRow">Add Row</button>
+                <table id="exerciselog" class="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <th>Exercise</th>
+                            <th></th>
+                            <th>Set1</th>
+                            <th>Set2</th>
+                            <th>Set3</th>
+                            <th>Set4</th>
+                            <th>Set5</th>
+                            <th>Set6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" contenteditable='true'></td>
+                            <td>Reps</td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                        </tr>
+                        <tr>
+                            <td>Weight</td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                            <td><input type="number" class="form-control form-control-sm" /></td>
+                        </tr>
+                    </tbody>
+                    <!-- Rows will be added here -->
+                </table>
+            </div>
+            <div id="lifestyle-form" class="d-none">
+                <div class="row">
+                    <div class="col-12 p-3">
+                        <div>
+                            <label class="col-2" for="sleep">Sleep</label>
+                            <label class="col-0" for="sleep">:</label>
+                            <input type="radio" id="sleep" name="sleep" value="poor">
+                            <label for="high">Poor</label>
+                            <input type="radio" id="sleep" name="sleep" value="average">
+                            <label for="medium">Average</label>
+                            <input type="radio" id="sleep" name="sleep" value="good">
+                            <label for="low">Good</label>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col">
+                            <label for="stress">Bed Time:</label>
+                            <input type="time" id="bedtime" name="bedtime">
+                        </div>
+                        <div class="col">
+                            <label for="stress">Wake Time:</label>
+                            <input type="time" id="waketime" name="waketime">
+                        </div>
+                        <div class="col">
+                            <label>Total hours:</label>
+                            <label id="sleepTime"> </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label> Food and Water </label>
+                    </div>
+
+                    <div>
+                        <table class="table table-bordered border-primary table-striped table-responsive">
+                            <tr>
+                                <td class="col-2">Breakfast</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Lunch</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Dinner</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Snacks</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Water</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Alcohol</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Coffee/Tea</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Aerated Drink</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-2">Other</td>
+                                <td contenteditable="true"></td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <div>
+                        <label> Medication & Supplements</label>
+
+                    </div>
+                    <div>
+                        <textarea class="col-12" style="height: 120px;"></textarea>
+                    </div>
+
+
+                    <div>
+                        <label>Notes </label>
+
+                    </div>
+                    <div>
+                        <textarea class="col-12" style="height: 120px;"></textarea>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="measurements-form" class="d-none">
+                <div>
+                    <table class="table table-bordered border-primary table-striped table-responsive">
+                        <tr>
+                            <td class="col-2">Weight</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Chest</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Waist</td>
+                            <td class="col-4"><input type="number" /></td>  
+                        </tr>
+                        <tr>
+                            <td class="col-2">Hips</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Shoulders</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">R thigh</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">L thigh</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">R calf</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">L calf</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-2">Resting HR</td>
+                            <td class="col-4"><input type="number" /></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="d-grid mx-auto col-6">
+
+                <button class="btn btn-primary btn-lg" id="submit" type="button">Submit</button>
+            </div>
+    </form>
+
+</body>
+
+</html>
